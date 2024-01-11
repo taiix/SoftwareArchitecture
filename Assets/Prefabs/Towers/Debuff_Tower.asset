@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 2
   cost: 20
-  attackRange: 2
-  attackSpeed: 10
-  damage: 3
+  attackRange: 5
+  attackSpeed: 1
+  damage: 1

@@ -85,6 +85,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6003824736226096030}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9d4a17f0e3f70814f9d96723bfe780e9,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -8572234313496515323}
   m_SourcePrefab: {fileID: 100100000, guid: 9d4a17f0e3f70814f9d96723bfe780e9, type: 3}
 --- !u!1 &4452740704493094164 stripped
 GameObject:
@@ -104,9 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 236d8140c9866304296e4012718441e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
-  gold: 15
   speed: 3
+  gold: 15
   path: []
   currentWaypoint: 0
 --- !u!135 &6003824736226096030
@@ -130,3 +133,18 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.49999997
   m_Center: {x: 0, y: 0.18559998, z: 0}
+--- !u!114 &-8572234313496515323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452740704493094164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b533bb7856ad564a9ab73b323e83c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 5
+  floatingText: {fileID: 7361103685687169559, guid: cf50c0be416505347aa3064c099200f9,
+    type: 3}

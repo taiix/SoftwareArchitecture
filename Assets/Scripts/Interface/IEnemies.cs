@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IEnemies
+public interface IEnemy
 {
-    //protected virtual Moving();
+    void Moving();
 }

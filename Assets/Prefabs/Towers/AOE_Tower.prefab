@@ -97,5 +97,33 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 4607668393258877731, guid: c78beb156583d19499726e38bf97f860, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c78beb156583d19499726e38bf97f860,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7071232187640570668}
   m_SourcePrefab: {fileID: 100100000, guid: c78beb156583d19499726e38bf97f860, type: 3}
+--- !u!1 &5180808433382031158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c78beb156583d19499726e38bf97f860,
+    type: 3}
+  m_PrefabInstance: {fileID: 5414597804001084007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7071232187640570668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5180808433382031158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4e0b48d4799244ea32075defd95572, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: {fileID: 11400000, guid: 41ce08b28da89aa408e97acd82ca618b, type: 2}
+  attackRange: 0
+  attackSpeed: 0
+  enemies: []
+  AOE_bullet: {fileID: 2387927117481060781, guid: 0bc0138e2468f654a9aacab4e35062d1,
+    type: 3}

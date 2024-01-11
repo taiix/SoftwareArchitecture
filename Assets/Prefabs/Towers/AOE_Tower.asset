@@ -15,5 +15,5 @@ MonoBehaviour:
   towerType: 1
   cost: 50
   attackRange: 2
-  attackSpeed: 5
+  attackSpeed: 1
   damage: 6

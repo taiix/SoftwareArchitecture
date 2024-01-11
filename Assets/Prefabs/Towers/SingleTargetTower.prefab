@@ -92,4 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: 45d1ef551bef4994286cc38b4d8b529e, type: 2}
   attackRange: 0
-  Target: {fileID: 0}
+  attackSpeed: 0
+  enemies: []
+  normal_bullet: {fileID: 2387927117481060781, guid: be6d6f7fdd25d294d8bf0bc0d9875be7,
+    type: 3}

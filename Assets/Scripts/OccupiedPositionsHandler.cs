@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class OccupiedPositionsHandler : MonoBehaviour, IOccupiedPositions
 {
+    public static OccupiedPositionsHandler Instance;
     public HashSet<Vector3> occupiedPositions = new();
+
+    void Awake() { Instance = this; }
 
     public bool IsPositionOccupied(Vector3 pos)
     {
@@ -11,5 +14,4 @@ public class OccupiedPositionsHandler : MonoBehaviour, IOccupiedPositions
     }
 
     public void AddOccupiedPosition(Vector3 pos) => occupiedPositions.Add(pos);
-
 }

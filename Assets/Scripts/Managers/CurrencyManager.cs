@@ -5,9 +5,9 @@ public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager instance { get; private set; }
 
-   // public static UnityAction<int> OnGoldUpdated;
+    // public static UnityAction<int> OnGoldUpdated;
 
-    [SerializeField]private int gold;
+    [SerializeField] private int gold;
 
     private void Awake()
     {
@@ -18,11 +18,6 @@ public class CurrencyManager : MonoBehaviour
 
     private void Start() => UIManager.OnGoldChanged?.Invoke(gold);
 
-    private void Update()
-    {
-        if (Input.anyKey)
-            UpdateGold(1); 
-    }
     public void UpdateGold(int amount)
     {
         gold += amount;

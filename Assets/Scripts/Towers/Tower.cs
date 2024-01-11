@@ -13,7 +13,9 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] protected float attackSpeed;
     protected float damage;
 
-    protected List<GameObject> enemies = new();
+    private float timer = 0;
+
+    [SerializeField]protected List<GameObject> enemies = new();
 
     private void Start() => WaveManager.instance.OnEnemyListUpdated += EnemyListHandler;
 
@@ -29,12 +31,6 @@ public abstract class Tower : MonoBehaviour
         this.damage = type.damage;
     }
 
-    protected abstract void Attack();
-
-    public virtual void Update()
-    {
-        Attack();
-    }
 
     protected void LookAtTarget(GameObject target)
     {
@@ -42,5 +38,49 @@ public abstract class Tower : MonoBehaviour
         Vector3 targetRot = Quaternion.LookRotation(dir).eulerAngles;
 
         transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(0, targetRot.y, 0), 20 * Time.deltaTime);
+    }
+
+    protected GameObject FindClosestEnemy()
+    {
+        float closestDist = float.MaxValue;
+        GameObject closestEnemy = null;
+        foreach (GameObject enemy in enemies)
+        {
+            float dist = (enemy.transform.position - this.gameObject.transform.position).magnitude;
+            if (dist < closestDist && dist <= attackRange)
+            {
+                closestDist = dist;
+                closestEnemy = enemy;
+            }
+        }
+        return closestEnemy;
+    }
+
+    protected void Attack(GameObject selectBullet)
+    {
+        if (FindClosestEnemy() == null) return;
+
+        GameObject target = FindClosestEnemy();
+        LookAtTarget(target);
+        timer += Time.deltaTime;
+
+        if (timer % attackSpeed < Time.deltaTime)
+        {
+            GameObject go = Instantiate(selectBullet, this.gameObject.transform.position, Quaternion.identity);
+
+            if (go.TryGetComponent<Bullet>(out Bullet bullet))
+            {
+                bullet.FindTarget(target);
+                bullet.damage = (int)type.damage;
+            }
+
+            Debug.Log(go);
+            timer = 0;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.gameObject.transform.position, attackRange);
     }
 }
