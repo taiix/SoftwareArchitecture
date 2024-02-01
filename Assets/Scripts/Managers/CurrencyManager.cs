@@ -1,11 +1,9 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class CurrencyManager : MonoBehaviour
 {
     public static CurrencyManager instance { get; private set; }
 
-    // public static UnityAction<int> OnGoldUpdated;
 
     [SerializeField] private int gold;
 
@@ -24,5 +22,23 @@ public class CurrencyManager : MonoBehaviour
         UIManager.OnGoldChanged?.Invoke(gold);
     }
 
-    public int GetAvailableGold() { return gold; }
+    public int GetAvailableGold() => gold;
+
+    public bool HasEnoughCurrency(int amount)
+    {
+        return gold >= amount;
+    }
+
+    public void DeductCurrency(int amount)
+    {
+        if (HasEnoughCurrency(amount))
+        {
+            gold -= amount;
+            UIManager.OnGoldChanged?.Invoke(gold);
+        }
+        else
+        {
+            Debug.LogError("Not enough gold to deduct.");
+        }
+    }
 }

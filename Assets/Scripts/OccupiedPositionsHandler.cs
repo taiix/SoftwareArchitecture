@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OccupiedPositionsHandler : MonoBehaviour, IOccupiedPositions
 {
     public static OccupiedPositionsHandler Instance;
     public HashSet<Vector3> occupiedPositions = new();
+    public UnityAction<Vector3> OnOccupiedChanged;
 
     void Awake() { Instance = this; }
 

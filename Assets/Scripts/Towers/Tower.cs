@@ -7,30 +7,70 @@ public abstract class Tower : MonoBehaviour
 
     [SerializeField] protected TowerInfo type;
 
-    protected int cost;
+    protected int buildingCost;
+    public int upgradeCost = 100;
 
     [SerializeField] protected float attackRange;
     [SerializeField] protected float attackSpeed;
-    protected float damage;
+    [SerializeField] protected float damage;
+    [SerializeField] protected int towerLevel;
 
     private float timer = 0;
 
     [SerializeField]protected List<GameObject> enemies = new();
 
-    private void Start() => WaveManager.instance.OnEnemyListUpdated += EnemyListHandler;
+    IUpgradable upgradeble;
 
-    private void OnDestroy() => WaveManager.instance.OnEnemyListUpdated -= EnemyListHandler;
+    private void Start()
+    {
+        WaveManager.instance.OnEnemyListUpdated += EnemyListHandler;
+
+        upgradeble = GetComponent<IUpgradable>();
+        if(upgradeble is MonoBehaviour upgade)
+        {
+            var updateTower = upgade.GetComponent<Upgrading>();
+            updateTower.OnUpgradeUpdate += TowerUpgrader;
+            updateTower.OnCostUpgraded += TowerCostUpgrader;
+        }
+    }
+
+    private void TowerCostUpgrader(int _upgradeCost)
+    {
+        upgradeCost += _upgradeCost;
+    }
+
+    private void TowerUpgrader(float attackRange, float attackSpeed, float attackDamage, int towerLevel)
+    {
+        Debug.Log("asdasdasd");
+        this.attackRange += attackRange;
+        this.attackSpeed += attackSpeed;
+        this.damage += attackDamage;
+        this.towerLevel += towerLevel;
+        this.upgradeCost += upgradeCost;
+    }
+
+    private void OnDestroy()
+    {
+        WaveManager.instance.OnEnemyListUpdated -= EnemyListHandler;
+        
+        if (upgradeble is MonoBehaviour upgade)
+        {
+            var updateTower = upgade.GetComponent<Upgrading>();
+            updateTower.OnUpgradeUpdate -= TowerUpgrader;
+            updateTower.OnCostUpgraded -= TowerCostUpgrader;
+        }
+    }
+
 
     private void EnemyListHandler(List<GameObject> enemies) => this.enemies = enemies;
 
     private void OnEnable()
     {
-        this.cost = type.cost;
+        this.buildingCost = type.cost;
         this.attackRange = type.attackRange;
         this.attackSpeed = type.attackSpeed;
         this.damage = type.damage;
     }
-
 
     protected void LookAtTarget(GameObject target)
     {
