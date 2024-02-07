@@ -31,11 +31,13 @@ public class BuildingManager : MonoBehaviour
         InputManager.Instance.OnMousePositionChange += OnBuildingPlacePositionChanged;
         TowerSelector.OnTowerSelected += TowerBuild;
     }
+
     private void OnDestroy()
     {
         InputManager.Instance.OnMousePositionChange -= OnBuildingPlacePositionChanged;
         TowerSelector.OnTowerSelected -= TowerBuild;
     }
+
     public void PlayerInputEnabled(bool isEnabled) => playerInputEnabled = isEnabled;
 
     private void OnBuildingPlacePositionChanged(Vector3 pos)
@@ -43,7 +45,6 @@ public class BuildingManager : MonoBehaviour
         if (!playerInputEnabled) return;
         potentialPosition = pos;
     }
-
 
     private void Update()
     {
@@ -57,6 +58,7 @@ public class BuildingManager : MonoBehaviour
         {
             Build();
         }
+       
     }
 
     private void Build()
@@ -72,16 +74,24 @@ public class BuildingManager : MonoBehaviour
 
             Vector3 checkPosition = hit.collider.transform.position;
 
-            Debug.Log(checkPosition);
             if (!occupiedPos.occupiedPositions.Contains(checkPosition) && !EventSystem.current.IsPointerOverGameObject())
             {
                 if (prefab == null) return;
-                SelectedTower(prefab);
+
+                if (prefab.TryGetComponent<Tower>(out Tower tower))
+                {
+                    CurrencyManager currency = CurrencyManager.instance;
+                    int cost = tower.type.cost;
+
+                    if (currency.HasEnoughCurrency(cost)) { 
+                        currency.DeductCurrency(cost);
+                        SelectedTower(prefab);
+                    }
+                }
             }
             else
             {
                 prefab = null;
-                Debug.Log("taken");
             }
 
         }

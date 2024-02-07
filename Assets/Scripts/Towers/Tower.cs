@@ -5,19 +5,18 @@ public abstract class Tower : MonoBehaviour
 {
     protected const float rotationSpeed = 20f;
 
-    [SerializeField] protected TowerInfo type;
+    public TowerInfo type;
 
-    protected int buildingCost;
     public int upgradeCost = 100;
+    protected int buildingCost;
 
     [SerializeField] protected float attackRange;
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float damage;
     [SerializeField] protected int towerLevel;
+    [SerializeField] protected List<GameObject> enemies = new();
 
     private float timer = 0;
-
-    [SerializeField]protected List<GameObject> enemies = new();
 
     IUpgradable upgradeble;
 
@@ -39,9 +38,8 @@ public abstract class Tower : MonoBehaviour
         upgradeCost += _upgradeCost;
     }
 
-    private void TowerUpgrader(float attackRange, float attackSpeed, float attackDamage, int towerLevel)
+    private void TowerUpgrader(float attackRange, float attackDamage, float attackSpeed, int towerLevel)
     {
-        Debug.Log("asdasdasd");
         this.attackRange += attackRange;
         this.attackSpeed += attackSpeed;
         this.damage += attackDamage;
@@ -103,7 +101,7 @@ public abstract class Tower : MonoBehaviour
         GameObject target = FindClosestEnemy();
         LookAtTarget(target);
         timer += Time.deltaTime;
-
+        Debug.Log("atk " + attackSpeed);
         if (timer % attackSpeed < Time.deltaTime)
         {
             GameObject go = Instantiate(selectBullet, this.gameObject.transform.position, Quaternion.identity);
@@ -114,7 +112,6 @@ public abstract class Tower : MonoBehaviour
                 bullet.damage = (int)type.damage;
             }
 
-            Debug.Log(go);
             timer = 0;
         }
     }

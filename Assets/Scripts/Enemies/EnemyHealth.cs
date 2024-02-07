@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour, IDamagable
         {
             int gold = this.gameObject.GetComponent<Enemy>().gold;
 
-            GameObject go = Instantiate(floatingText, gameObject.transform.position, Quaternion.identity);
+            GameObject go = Instantiate(floatingText, gameObject.transform.position + new Vector3(0, 1, 0), Quaternion.identity);
             
             if (go.TryGetComponent<TextMesh>(out TextMesh goldText))
             {
