@@ -9,6 +9,4 @@ public class SingleTargetTower : Tower
         if(normal_bullet == null) return;
         Attack(normal_bullet);
     }
-
-    
 }

@@ -4,22 +4,18 @@ using UnityEngine.EventSystems;
 
 public class ButtonInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
+    public TowerInfo towerInfo;
 
     [SerializeField] private GameObject infoPage;
 
-    public TowerInfo towerInfo;
-    public TextMeshProUGUI towerCostTextUI;
+    [SerializeField] private TextMeshProUGUI towerCostTextUI;
+    [SerializeField] private TextMeshProUGUI towerTypeText;
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private TextMeshProUGUI attackRangeText;
+    [SerializeField] private TextMeshProUGUI attackSpeedText;
+    [SerializeField] private TextMeshProUGUI damageText;
 
-    public TextMeshProUGUI towerTypeText;
-
-
-    public TextMeshProUGUI costText;
-
-    public TextMeshProUGUI attackRangeText;
-    public TextMeshProUGUI attackSpeedText;
-    public TextMeshProUGUI damageText;
-
-    public Vector2 offset;
+    [SerializeField] private Vector2 offset;
 
     void Start() => towerCostTextUI.text = "$" + towerInfo.cost.ToString();
 

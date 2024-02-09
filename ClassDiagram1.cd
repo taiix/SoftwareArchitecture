@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HealthCounter">
+    <Position X="22.25" Y="2" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAIAAAAAAAAAAAQAAAEAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\HealthCounter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OccupiedPositionsHandler" BaseTypeListCollapsed="true">
+    <Position X="25.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAREAAAAAAAAAAAIAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\OccupiedPositionsHandler.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Class Name="SlowDebuffCommand" BaseTypeListCollapsed="true">
+    <Position X="66.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAABAQAAAAAAAIAAAAAAAAAAAgAAAIAAAI=</HashCode>
+      <FileName>Assets\Scripts\SlowDebuffCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.1" Collapsed="true" />
+  </Class>
+  <Class Name="TileColorChange">
+    <Position X="34.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgCIAAgAAAAAAAAAAgAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\TileColorChange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimeController">
+    <Position X="36.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>Assets\Scripts\TimeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TimerHandler">
+    <Position X="27.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAiAA=</HashCode>
+      <FileName>Assets\Scripts\TimerHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerSelector">
+    <Position X="30" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\TowerSelector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Upgrading" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIgAQAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Upgrading.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Orientation="Left" Position="0.1" />
+  </Class>
+  <Class Name="UpgradingEffect">
+    <Position X="39" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAEAIAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UpgradingEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOE_Bullet">
+    <Position X="9.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Bullets\AOE_Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Bullet">
+    <Position X="11.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAgAAAIAAAEAAAAAAEAQAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Bullets\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Debuff_Bullet">
+    <Position X="11.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAEIAAAA=</HashCode>
+      <FileName>Assets\Scripts\Bullets\Debuff_Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NormalBullet">
+    <Position X="14" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Bullets\NormalBullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Enemy">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAQQEACAAAAAAAAACAAAAAAAAAQAAAAAAABAAIAA=</HashCode>
+      <FileName>Assets\Scripts\Enemies\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EnemyHealth">
+    <Position X="7.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemies\EnemyHealth.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="NormalEnemy">
+    <Position X="5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemies\NormalEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FastEnemy">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemies\FastEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TankEnemy">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEAAAEACAAAAAAAgAAAAAAAAAAABAFAAgAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemies\TankEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomPathGenerator">
+    <Position X="41.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CEBBAgABAGIAAAAFFAIAgAAAAEAAIABkAADAAEAAAMA=</HashCode>
+      <FileName>Assets\Scripts\Etc\RandomPathGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BuildingManager">
+    <Position X="43.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAQAiIAAAAEAAAABAIQAAAAgAAgQAAACAAAAMA=</HashCode>
+      <FileName>Assets\Scripts\Managers\BuildingManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CurrencyManager">
+    <Position X="45.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACAAAAAAAAEAIAAAAAFAAAAAAAAAAQAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\CurrencyManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="48" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAgCAAAAAAAAAAAAAACEBQAAAMAAAARAIAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GridManager">
+    <Position X="43.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACIAAAAAAAAAAAAAAAAAAAAAAIAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GridManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager">
+    <Position X="48" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAACAAAAAAwAAAAAAAAAAAAAAAQAAABAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Managers\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerTurn">
+    <Position X="52.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\PlayerTurn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WaveManager">
+    <Position X="45.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASBIIAAACAAQAAACgQAEACADEBBAAARCBAAIAAAEFA=</HashCode>
+      <FileName>Assets\Scripts\Managers\WaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AOE_Tower">
+    <Position X="16.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Towers\AOE_Tower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Debuff_Tower">
+    <Position X="18.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Towers\Debuff_Tower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SingleTargetTower">
+    <Position X="20.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Towers\SingleTargetTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tower">
+    <Position X="18.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQHAAAAAKAAhAAABAAAIAAAAJABAAABAABAAAAgCAA=</HashCode>
+      <FileName>Assets\Scripts\Towers\Tower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TowerInfo">
+    <Position X="68" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAgAAABAAAAAAAIAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Towers\TowerInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ButtonInfo" BaseTypeListCollapsed="true">
+    <Position X="54.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAEEAAACgAAAEAAhAAAAAAAAAgAABAAAAAQQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\ButtonInfo.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FloatingText">
+    <Position X="59.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UI\FloatingText.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager">
+    <Position X="57" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAIQAAAEAgAAAEABEAAAAAAAgIAAAQACAACAE=</HashCode>
+      <FileName>Assets\Scripts\UI\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="ICommand">
+    <Position X="66.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interface\ICommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IEnemy">
+    <Position X="69.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Scripts\Interface\IEnemies.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IDamagable">
+    <Position X="68" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interface\IDamagable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IOccupiedPositions">
+    <Position X="66.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interface\IOccupiedPositions.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ITextUpdate">
+    <Position X="68" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interface\ITextUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IUpgradable">
+    <Position X="69.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Interface\IUpgradable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="TankEnemyState">
+    <Position X="69.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemies\TankEnemy.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="GameStates">
+    <Position X="68" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EnemyType">
+    <Position X="66.25" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\WaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TowerType">
+    <Position X="66.25" Y="11.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAEEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Towers\TowerInfo.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -13,7 +13,7 @@ public class HealthCounter : MonoBehaviour
     {
         if (enemiesReachedGoal > 0)
             return;
-        GameManager.instance.OnGameStateChanged?.Invoke(GameStates.LoseState);
+        GameManager.instance?.OnGameStateChanged?.Invoke(GameStates.LoseState);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +25,7 @@ public class HealthCounter : MonoBehaviour
                 enemiesReachedGoal--;
                 UIManager.OnHealthChanged?.Invoke(enemiesReachedGoal);
                 Destroy(other.gameObject);
-                WaveManager.instance.enemies.Remove(other.gameObject);
+                WaveManager.instance?.enemies.Remove(other.gameObject);
             }
         }
     }

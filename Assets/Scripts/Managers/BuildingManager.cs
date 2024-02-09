@@ -5,16 +5,15 @@ public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance { get; private set; }
 
-    public GameObject prefab;
-
-    public bool playerInputEnabled;
-
-    public Vector3 potentialPosition;
-    public Grid grid;
-
-    private const float roundToGridPosition = 0.5f;
 
     [SerializeField] private OccupiedPositionsHandler occupiedPos;
+    [SerializeField] private Grid grid;
+
+    private GameObject prefab;
+    private bool playerInputEnabled;
+    private Vector3 potentialPosition;
+    private const float roundToGridPosition = 0.5f;
+
 
     private void Awake()
     {

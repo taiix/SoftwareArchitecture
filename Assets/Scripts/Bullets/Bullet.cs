@@ -5,9 +5,9 @@ public abstract class Bullet : MonoBehaviour
     [HideInInspector] public int damage;
 
     [SerializeField] protected float speed;
-    protected GameObject target;
+    protected Enemy target;
 
-    public void FindTarget(GameObject _target)
+    public void FindTarget(Enemy _target)
     {
         target = _target;
     }

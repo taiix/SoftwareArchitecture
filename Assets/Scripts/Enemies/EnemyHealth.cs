@@ -22,10 +22,10 @@ public class EnemyHealth : MonoBehaviour, IDamagable
             }
 
             Destroy(gameObject);
-            WaveManager.instance.enemies.Remove(gameObject);
+            WaveManager.instance?.enemies.Remove(gameObject);
             WaveManager.instance.OnEnemyListUpdated?.Invoke(WaveManager.instance.enemies);
 
-            CurrencyManager.instance.UpdateGold(gold);
+            if(CurrencyManager.instance != null) CurrencyManager.instance.UpdateGold(gold);
         }
     }
 }

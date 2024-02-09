@@ -3,8 +3,6 @@ using UnityEngine;
 
 public abstract class Tower : MonoBehaviour
 {
-    protected const float rotationSpeed = 20f;
-
     public TowerInfo type;
 
     public int upgradeCost = 100;
@@ -14,7 +12,6 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float damage;
     [SerializeField] protected int towerLevel;
-    [SerializeField] protected List<GameObject> enemies = new();
 
     private float timer = 0;
 
@@ -22,8 +19,6 @@ public abstract class Tower : MonoBehaviour
 
     private void Start()
     {
-        WaveManager.instance.OnEnemyListUpdated += EnemyListHandler;
-
         upgradeble = GetComponent<IUpgradable>();
         if(upgradeble is MonoBehaviour upgade)
         {
@@ -48,9 +43,7 @@ public abstract class Tower : MonoBehaviour
     }
 
     private void OnDestroy()
-    {
-        WaveManager.instance.OnEnemyListUpdated -= EnemyListHandler;
-        
+    {        
         if (upgradeble is MonoBehaviour upgade)
         {
             var updateTower = upgade.GetComponent<Upgrading>();
@@ -58,9 +51,6 @@ public abstract class Tower : MonoBehaviour
             updateTower.OnCostUpgraded -= TowerCostUpgrader;
         }
     }
-
-
-    private void EnemyListHandler(List<GameObject> enemies) => this.enemies = enemies;
 
     private void OnEnable()
     {
@@ -70,7 +60,7 @@ public abstract class Tower : MonoBehaviour
         this.damage = type.damage;
     }
 
-    protected void LookAtTarget(GameObject target)
+    protected void LookAtTarget(Enemy target)
     {
         Vector3 dir = target.transform.position - this.gameObject.transform.position;
         Vector3 targetRot = Quaternion.LookRotation(dir).eulerAngles;
@@ -78,11 +68,12 @@ public abstract class Tower : MonoBehaviour
         transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(0, targetRot.y, 0), 20 * Time.deltaTime);
     }
 
-    protected GameObject FindClosestEnemy()
+    protected Enemy FindClosestEnemy()
     {
         float closestDist = float.MaxValue;
-        GameObject closestEnemy = null;
-        foreach (GameObject enemy in enemies)
+        Enemy closestEnemy = null;
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        foreach (Enemy enemy in enemies)
         {
             float dist = (enemy.transform.position - this.gameObject.transform.position).magnitude;
             if (dist < closestDist && dist <= attackRange)
@@ -98,7 +89,7 @@ public abstract class Tower : MonoBehaviour
     {
         if (FindClosestEnemy() == null) return;
 
-        GameObject target = FindClosestEnemy();
+        Enemy target = FindClosestEnemy();
         LookAtTarget(target);
         timer += Time.deltaTime;
         Debug.Log("atk " + attackSpeed);

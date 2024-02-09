@@ -51,7 +51,6 @@ public class WaveManager : MonoBehaviour
         GameManager.instance.OnGameStateChangedNotifier += OnGameStateChange;
         amountOfEnemiesPerWave = maxEnemiesPerWave;
         UIManager.OnWaveChanged?.Invoke(currentWave, numberOfWaves);
-
     }
 
     private void OnDestroy() => GameManager.instance.OnGameStateChangedNotifier -= OnGameStateChange;
@@ -75,9 +74,9 @@ public class WaveManager : MonoBehaviour
     {
         if (amountOfEnemiesPerWave <= 0 && enemies.Count == 0)
         {
-            if (GameManager.instance.State == GameStates.EnemyState)
+            if (GameManager.instance?.State == GameStates.EnemyState)
             {
-                GameManager.instance.OnGameStateChanged?.Invoke(GameStates.BuildingState);
+                GameManager.instance?.OnGameStateChanged?.Invoke(GameStates.BuildingState);
 
                 currentWave++;
                 UIManager.OnWaveChanged?.Invoke(currentWave, numberOfWaves);
@@ -106,6 +105,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator WaveStartTimer(float duration)
     {
         float timer = 0;
+        waveTimer = 0;
         while (timer < duration)
         {
             timer += Time.deltaTime;

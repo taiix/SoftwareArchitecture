@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerTurn : MonoBehaviour
 {
-    private void Awake() => GameManager.instance.OnGameStateChangedNotifier += GameStateChangeState;
+    private void Start() => GameManager.instance.OnGameStateChangedNotifier += GameStateChangeState;
 
     private void OnDestroy() => GameManager.instance.OnGameStateChangedNotifier -= GameStateChangeState;
 

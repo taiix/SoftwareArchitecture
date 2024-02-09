@@ -3,9 +3,10 @@ using UnityEngine.Events;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance;
+    public static InputManager Instance { get; private set; }
 
     public UnityAction<Vector3> OnMousePositionChange;
+
     private Camera cam;
 
     [SerializeField]
