@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Handles timer functionality and triggers events when the timer starts.
+/// </summary>
 public class TimerHandler : MonoBehaviour
 {
     public UnityAction<float> OnTimerStarted;

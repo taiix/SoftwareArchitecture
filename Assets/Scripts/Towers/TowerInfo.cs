@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// ScriptableObject that holds information about different types of towers.
+/// </summary>
 [CreateAssetMenu(fileName = "New Tower", menuName = "Tower")]
 public class TowerInfo : ScriptableObject
 {

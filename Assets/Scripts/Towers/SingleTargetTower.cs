@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Class representing a single-target tower in the game.
+/// </summary>
 public class SingleTargetTower : Tower
 {
     [SerializeField] private GameObject normal_bullet;

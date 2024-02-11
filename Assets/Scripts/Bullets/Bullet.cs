@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Abstract class representing a bullet fired by a tower.
+/// </summary>
 public abstract class Bullet : MonoBehaviour
 {
     [HideInInspector] public int damage;
@@ -7,6 +10,11 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected float speed;
     protected Enemy target;
 
+
+    /// <summary>
+    /// Finds the bullet target
+    /// </summary>
+    /// <param name="_target"></param>
     public void FindTarget(Enemy _target)
     {
         target = _target;

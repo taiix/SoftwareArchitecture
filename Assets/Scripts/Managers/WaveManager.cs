@@ -4,20 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Manages waves of enemies and their spawning during gameplay.
+/// </summary>
+
 public class WaveManager : MonoBehaviour
 {
-    /*
-    • The game has at least 5 waves of enemies, each wave is more difficult than the previous one.
-    • Properties of a wave can be configured in the Unity Editor without changing the code, e.g. one or multiple of: 
-      enemy types, enemy amounts, enemy combinations, delay between enemies, percentage of each enemy type, chance of spawning, etc.
-    • In between waves the players have a short building phase to sell/destroy, build and upgrade the towers.
-    */
     public static WaveManager instance { get; private set; }
 
     public UnityAction<List<GameObject>> OnEnemyListUpdated;
 
-    public bool enemyStateActive;
     public EnemyType type;
+    [HideInInspector] public bool enemyStateActive;
 
     public int waveDifficulty;
     [HideInInspector] public List<GameObject> enemies = new();
@@ -48,17 +46,23 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instance.OnGameStateChangedNotifier += OnGameStateChange;
+        if (GameManager.instance != null)
+            GameManager.instance.OnGameStateChangedNotifier += OnGameStateChange;
+
         amountOfEnemiesPerWave = maxEnemiesPerWave;
         UIManager.OnWaveChanged?.Invoke(currentWave, numberOfWaves);
     }
 
-    private void OnDestroy() => GameManager.instance.OnGameStateChangedNotifier -= OnGameStateChange;
+    private void OnDestroy()
+    {
+        if (GameManager.instance != null) 
+            GameManager.instance.OnGameStateChangedNotifier -= OnGameStateChange;
+    }
 
     private void OnGameStateChange(GameStates state)
     {
         enemyStateActive = state == GameStates.EnemyState;
-        if (enemyStateActive) StartCoroutine(WaveStartTimer(waveDuration));
+        if (enemyStateActive) StartCoroutine(WaveStartTimer(waveDuration)); 
     }
 
     private void Update()
@@ -70,6 +74,9 @@ public class WaveManager : MonoBehaviour
         SpawningEnemies();
     }
 
+    /// <summary>
+    /// Spawns enemies based on the current wave's settings.
+    /// </summary>
     private void SpawningEnemies()
     {
         if (amountOfEnemiesPerWave <= 0 && enemies.Count == 0)
@@ -91,9 +98,10 @@ public class WaveManager : MonoBehaviour
             if (enemyPrefab != null)
             {
                 GameObject go = Instantiate(enemyPrefab, spawnPos.position, Quaternion.identity);
-                if (go.TryGetComponent<Enemy>(out Enemy enemy))
+                if (go.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
                 {
                     enemy.OnEnemyAttributesChanged?.Invoke(waveDifficulty);
+                    Debug.Log("ehe");
                 }
                 enemies.Add(go);
                 OnEnemyListUpdated?.Invoke(enemies);
@@ -102,6 +110,10 @@ public class WaveManager : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Timer for controlling the duration of each wave.
+    /// </summary>
     IEnumerator WaveStartTimer(float duration)
     {
         float timer = 0;
@@ -114,7 +126,9 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    //fix this
+    /// <summary>
+    /// Retrieves a random enemy prefab.
+    /// </summary>
     private GameObject GetEnemyPrefab()
     {
         var enemyTypeValues = Enum.GetValues(typeof(EnemyType));

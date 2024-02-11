@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the time scale based on mouse scroll input.
+/// </summary>
+
 public class TimeController : MonoBehaviour
 {
     private void Update()

@@ -1,10 +1,11 @@
 using UnityEngine;
-using UnityEngine.Events;
+
+/// <summary>
+/// Handles tracking the number of enemies that have reached the goal and triggers events.
+/// </summary>
 
 public class HealthCounter : MonoBehaviour
 {
-    public static UnityAction OnHitDetected;
-
     [SerializeField] private int enemiesReachedGoal;
 
     private void Start() => UIManager.OnHealthChanged?.Invoke(enemiesReachedGoal);

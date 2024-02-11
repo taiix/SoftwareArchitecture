@@ -1,67 +1,41 @@
-using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Apply pulse shader during Building State
+/// </summary>
 public class UpgradingEffect : MonoBehaviour
 {
     [SerializeField] private Material pulseShader;
-    [SerializeField] private Material[] normalMat;
+    [SerializeField] private Material[] mats;
 
+    private Renderer rend;
+
+    private void Start()
+    {
+        rend = GetComponent<Renderer>();
+
+        mats = GetComponent<Renderer>().materials;
+    }
 
     private void Update()
     {
-        if (GameManager.instance.State == GameStates.BuildingState)
+        if (GameManager.instance?.State == GameStates.BuildingState)
         {
-            IUpgradable[] towers = FindObjectsOfType<MonoBehaviour>().OfType<IUpgradable>().ToArray();
-
-            //save curr mat
-            foreach (IUpgradable towerMaterial in towers)
-            {
-                if (towerMaterial is MonoBehaviour mTower)
-                {
-                    if (mTower.TryGetComponent<Renderer>(out Renderer renderer))
-                    {
-                        normalMat = renderer.materials;
-                    }
-                }
-            }
-
-            //apply shader
-            foreach (IUpgradable tower in towers)
-            {
-                ChangeShader(tower, pulseShader);
-            }
+            ApplyPulseShader();
         }
         else
         {
-            IUpgradable[] towers = FindObjectsOfType<MonoBehaviour>().OfType<IUpgradable>().ToArray();
-
-            foreach (IUpgradable tower in towers)
-            {
-                for (int i = 0; i < normalMat.Length; i++)
-                {
-                    ChangeShader(tower, normalMat[i]);
-                }
-            }
+            RevertToNormalMaterial();
         }
     }
 
-    void ChangeShader(IUpgradable tower, Material mat)
+    private void ApplyPulseShader()
     {
-        if (tower is MonoBehaviour mTower)
-        {
-            Transform transform = mTower.transform;
-            mTower.GetComponent<Renderer>().material = pulseShader;
+        rend.material = pulseShader;
+    }
 
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Transform childTransform = transform.GetChild(i);
-
-                // Do something with the child (e.g., change its material)
-                if (childTransform.TryGetComponent<Renderer>(out Renderer childRenderer))
-                {
-                    childRenderer.material = mat;
-                }
-            }
-        }
+    private void RevertToNormalMaterial()
+    {
+        rend.materials = mats;
     }
 }

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Class representing a debuff tower in the game.
+/// </summary>
 public class Debuff_Tower : Tower
 {
     [SerializeField] private GameObject debuff_bullet;

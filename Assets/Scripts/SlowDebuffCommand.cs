@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Command pattern implementation for applying a slow debuff to an enemy in the game.
+/// </summary>
 public class SlowDebuffCommand : ICommand
 {
     private Enemy enemy;
@@ -17,6 +20,9 @@ public class SlowDebuffCommand : ICommand
         this.duration = duration;
     }
 
+    /// <summary>
+    /// Executes the slow debuff command by reducing the enemy's speed and it's restoring it after some time
+    /// </summary>
     public void Execute()
     {
         enemy.speed = slowSpeed;
@@ -24,6 +30,9 @@ public class SlowDebuffCommand : ICommand
         enemy.StartCoroutine(UndoAfterDuration(duration));
     }
 
+    /// <summary>
+    /// Undoes the slow debuff by restoring the enemy's original speed.
+    /// </summary>
     public void Undo()
     {
         enemy.speed = originalSpeed;

@@ -1,19 +1,20 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Manages the building of towers by the player.
+/// </summary>
 public class BuildingManager : MonoBehaviour
 {
     public static BuildingManager Instance { get; private set; }
 
+    [SerializeField] private OccupiedPositionsHandler occupiedPos; // Reference to the handler for occupied positions
+    [SerializeField] private Grid grid; // Reference to the grid for tower placement
 
-    [SerializeField] private OccupiedPositionsHandler occupiedPos;
-    [SerializeField] private Grid grid;
-
-    private GameObject prefab;
-    private bool playerInputEnabled;
-    private Vector3 potentialPosition;
-    private const float roundToGridPosition = 0.5f;
-
+    private GameObject prefab; // Selected tower prefab
+    private bool playerInputEnabled; // Indicating if player input is enabled
+    private Vector3 potentialPosition; // Potential position for tower placement
+    private const float roundToGridPosition = 0.5f; // Offset for aligning tower to grid
 
     private void Awake()
     {
@@ -37,6 +38,9 @@ public class BuildingManager : MonoBehaviour
         TowerSelector.OnTowerSelected -= TowerBuild;
     }
 
+    /// <summary>
+    /// Enables or disables player input for tower building.
+    /// </summary>
     public void PlayerInputEnabled(bool isEnabled) => playerInputEnabled = isEnabled;
 
     private void OnBuildingPlacePositionChanged(Vector3 pos)
@@ -57,9 +61,11 @@ public class BuildingManager : MonoBehaviour
         {
             Build();
         }
-       
     }
 
+    /// <summary>
+    /// Attempts to build a tower at the current position.
+    /// </summary>
     private void Build()
     {
         Camera cam = Camera.main;
@@ -70,9 +76,9 @@ public class BuildingManager : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, 100f))
         {
-
             Vector3 checkPosition = hit.collider.transform.position;
 
+            // Check if the position is not occupied and not over a UI element
             if (!occupiedPos.occupiedPositions.Contains(checkPosition) && !EventSystem.current.IsPointerOverGameObject())
             {
                 if (prefab == null) return;
@@ -82,9 +88,11 @@ public class BuildingManager : MonoBehaviour
                     CurrencyManager currency = CurrencyManager.instance;
                     int cost = tower.type.cost;
 
-                    if (currency.HasEnoughCurrency(cost)) { 
+                    if (currency.HasEnoughCurrency(cost))
+                    {
                         currency.DeductCurrency(cost);
                         SelectedTower(prefab);
+                        prefab = null;
                     }
                 }
             }
@@ -92,10 +100,12 @@ public class BuildingManager : MonoBehaviour
             {
                 prefab = null;
             }
-
         }
     }
 
+    /// <summary>
+    /// Instantiates the selected tower at the adjusted position on the grid.
+    /// </summary>
     public void SelectedTower(GameObject prefab)
     {
         Vector3Int gridPos = grid.WorldToCell(potentialPosition);

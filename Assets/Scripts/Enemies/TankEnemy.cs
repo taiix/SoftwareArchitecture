@@ -24,6 +24,9 @@ public class TankEnemy : Enemy
         StateManager();
     }
 
+    /// <summary>
+    /// Manages the state of the tank enemy (moving or idle).
+    /// </summary>
     void StateManager()
     {
         switch (state)
@@ -40,6 +43,9 @@ public class TankEnemy : Enemy
         }
     }
 
+    /// <summary>
+    /// Manages the timing for moving and idle states.
+    /// </summary>
     private void TimeManagement()
     {
         switch (state)

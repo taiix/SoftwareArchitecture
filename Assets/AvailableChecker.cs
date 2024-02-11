@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Checks the availability of a specific tower in the shop based on the player's currency.
+/// </summary>
 public class AvailableChecker : MonoBehaviour
 {
     private CurrencyManager currencyManager;
@@ -28,11 +31,6 @@ public class AvailableChecker : MonoBehaviour
     {
         if (currencyManager.HasEnoughCurrency(currentCost))
         {
-            
-            //colorBlock.normalColor = Color.white;
-            //colorBlock.selectedColor = Color.white;
-            //colorBlock.disabledColor = Color.white;
-
             button.colors = ColorBlock.defaultColorBlock;
         }
         else {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AOE_Tower
   m_EditorClassIdentifier: 
   towerType: 1
-  cost: 50
+  cost: 200
   attackRange: 2
-  attackSpeed: 1
-  damage: 6
+  attackSpeed: 1.5
+  damage: 3

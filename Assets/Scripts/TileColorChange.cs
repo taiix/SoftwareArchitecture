@@ -1,7 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+
+/// <summary>
+/// Controls the color of tiles based on occupied positions.
+/// </summary>
 
 public class TileColorChange : MonoBehaviour
 {

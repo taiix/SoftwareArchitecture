@@ -2,11 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Abstract class representing an enemy unit in the game.
+/// </summary>
 public abstract class Enemy : MonoBehaviour, IEnemy
 {
     public static UnityAction OnObjectCreated;
 
-    public UnityAction<int> OnEnemyAttributesChanged;
     public float speed;
 
     public int gold;
@@ -14,6 +16,9 @@ public abstract class Enemy : MonoBehaviour, IEnemy
     [SerializeField] protected List<Vector3> path;
     [SerializeField] protected int currentWaypoint;
 
+    /// <summary>
+    /// Moves the enemy along the predefined path.
+    /// </summary>
     public void Moving()
     {
         if (path != null && currentWaypoint < path.Count)
@@ -26,9 +31,6 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         }
     }
 
-    //private void Awake() => OnEnemyAttributesChanged += DifficultyChange;
-    
-
     protected virtual void Start()
     {
         RandomPathGenerator.OnPathCreated += HandlePath;
@@ -36,14 +38,11 @@ public abstract class Enemy : MonoBehaviour, IEnemy
         OnObjectCreated?.Invoke();
     }
 
-    protected virtual void OnDestroy()
-    {
-        RandomPathGenerator.OnPathCreated -= HandlePath;
-        //OnEnemyAttributesChanged -= DifficultyChange;
-    }
+    protected virtual void OnDestroy() => RandomPathGenerator.OnPathCreated -= HandlePath;
 
+    /// <summary>
+    /// Handles the received path data.
+    /// </summary>
+    /// <param name="recievedPath"></param>
     protected virtual void HandlePath(List<Vector3> recievedPath) => this.path = recievedPath;
-
-   // private void DifficultyChange(int increaseAttribute) => health += increaseAttribute;
-
 }

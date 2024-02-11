@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Provides the current mouse position in world space.
+/// </summary>
 public class InputManager : MonoBehaviour
 {
     public static InputManager Instance { get; private set; }

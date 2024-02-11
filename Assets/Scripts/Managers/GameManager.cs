@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+/// <summary>
+/// Manages the overall game state and notifies subscribed components of state changes.
+/// </summary>
 
 public class GameManager : MonoBehaviour
 {
@@ -39,12 +41,6 @@ public class GameManager : MonoBehaviour
             case GameStates.BuildingState:
                 BuildingStateHandler();
                 break;
-            case GameStates.WinState:
-                WinStateHandler();
-                break;
-            case GameStates.LoseState:
-                LoseStateHandler();
-                break;
         }
 
         OnGameStateChangedNotifier?.Invoke(newState);
@@ -52,15 +48,7 @@ public class GameManager : MonoBehaviour
 
     #region StatesUpdates
     void BuildingStateHandler() => timerHandler.OnTimerStarted?.Invoke(durationInSeconds);
-
-    void WinStateHandler()
-    {
-        Debug.Log("win win win");
-    }
-
-    void LoseStateHandler() { }
     #endregion
-
 }
 
 public enum GameStates

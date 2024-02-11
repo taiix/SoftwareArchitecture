@@ -2,9 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Singleton class responsible for the occupied positions in the game.
+/// </summary>
 public class OccupiedPositionsHandler : MonoBehaviour, IOccupiedPositions
 {
-    public static OccupiedPositionsHandler Instance;
+    public static OccupiedPositionsHandler Instance { get; private set; }
     public HashSet<Vector3> occupiedPositions = new();
     public UnityAction<Vector3> OnOccupiedChanged;
 

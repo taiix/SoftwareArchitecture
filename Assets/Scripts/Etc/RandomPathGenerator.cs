@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Some ideas and optimizations from AI
@@ -173,7 +174,16 @@ public class RandomPathGenerator : MonoBehaviour
         }
         else
         {
-            Generate();
+            try
+            {
+                Generate();
+            }
+            catch (System.Exception e)
+            {
+                Debug.Log(e);
+                SceneManager.LoadScene(0);
+            }
+            
         }
     }
 

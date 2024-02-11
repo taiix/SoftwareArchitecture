@@ -121,4 +121,4 @@ MonoBehaviour:
   damage: 0
   speed: 10
   slowSpeed: 1
-  slowDuration: 0.5
+  slowDuration: 0.7

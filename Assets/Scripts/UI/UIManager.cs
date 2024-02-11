@@ -1,7 +1,10 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+
+/// <summary>
+///  Manages UI elements and updates them based on game events.
+/// </summary>
 
 public class UIManager : MonoBehaviour
 {
@@ -33,37 +36,20 @@ public class UIManager : MonoBehaviour
     private void WaveChange(int currentWave, int maxWaves)
     {
         waveText.text = "Wave: " + currentWave + "/" + maxWaves;
-    }  
-    
+    }
+
     private void GoldChange(int gold)
     {
         goldText.text = "Gold: " + gold;
-    } 
-    
+    }
+
     private void TimeChange(float time)
     {
-        timeText.text = "Time: " + time.ToString("0:00");
-    }  
-    
+        timeText.text = "Preparing State: " + time.ToString("0:00");
+    }
+
     private void HealthChange(int health)
     {
         healthText.text = "Health: " + health;
     }
-
-    //public static void WaveUpdateUI()
-    //{
-    //    OnWaveChanged?.Invoke();
-    //}
-    //public static void GoldUpdateUI(string text, float value)
-    //{
-    //    OnGoldChanged?.Invoke(text, value);
-    //}
-    //public static void TimeUpdateUI(string text, float value)
-    //{
-    //    OnTimeChanged?.Invoke(text, value);
-    //}
-    //public static void HealthUpdateUI(string text, float value)
-    //{
-    //    OnHealthChanged?.Invoke(text, value);
-    //}
 }

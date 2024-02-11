@@ -1,9 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Abstract class representing a tower in the game.
+/// </summary>
 public abstract class Tower : MonoBehaviour
 {
     public TowerInfo type;
+    public bool canBeBought;
 
     public int upgradeCost = 100;
     protected int buildingCost;
@@ -12,6 +15,7 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] protected float attackSpeed;
     [SerializeField] protected float damage;
     [SerializeField] protected int towerLevel;
+
 
     private float timer = 0;
 
@@ -28,11 +32,22 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Increases the tower's upgrade cost.
+    /// </summary>
+    /// <param name="_upgradeCost"></param>
     private void TowerCostUpgrader(int _upgradeCost)
     {
         upgradeCost += _upgradeCost;
     }
 
+    /// <summary>
+    /// Upgrades the tower's attributes.
+    /// </summary>
+    /// <param name="attackRange"></param>
+    /// <param name="attackDamage"></param>
+    /// <param name="attackSpeed"></param>
+    /// <param name="towerLevel"></param>
     private void TowerUpgrader(float attackRange, float attackDamage, float attackSpeed, int towerLevel)
     {
         this.attackRange += attackRange;
@@ -52,6 +67,9 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Initializes tower attributes when enabled.
+    /// </summary>
     private void OnEnable()
     {
         this.buildingCost = type.cost;
@@ -60,6 +78,10 @@ public abstract class Tower : MonoBehaviour
         this.damage = type.damage;
     }
 
+    /// <summary>
+    /// Rotates the tower to face the target enemy.
+    /// </summary>
+    /// <param name="target"></param>
     protected void LookAtTarget(Enemy target)
     {
         Vector3 dir = target.transform.position - this.gameObject.transform.position;
@@ -68,6 +90,10 @@ public abstract class Tower : MonoBehaviour
         transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.Euler(0, targetRot.y, 0), 20 * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Finds the closest enemy within the tower's attack range.
+    /// </summary>
+    /// <returns></returns>
     protected Enemy FindClosestEnemy()
     {
         float closestDist = float.MaxValue;
@@ -85,6 +111,10 @@ public abstract class Tower : MonoBehaviour
         return closestEnemy;
     }
 
+    /// <summary>
+    /// Initiates an attack on the closest enemy using the specified bullet.
+    /// </summary>
+    /// <param name="selectBullet"></param>
     protected void Attack(GameObject selectBullet)
     {
         if (FindClosestEnemy() == null) return;

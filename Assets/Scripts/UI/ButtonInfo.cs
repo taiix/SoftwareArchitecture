@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Class responsible for displaying tower information when the mouse hovers over a button.
+/// Implements pointer event interfaces for interaction.
+/// </summary>
 public class ButtonInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerMoveHandler
 {
     public TowerInfo towerInfo;

@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// Handles the upgrading functionality for towers
+/// </summary>
+
 public class Upgrading : MonoBehaviour, IUpgradable
 {
     public UnityAction<float, float, float, int> OnUpgradeUpdate;

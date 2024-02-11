@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SingleTargetTower
   m_EditorClassIdentifier: 
   towerType: 0
-  cost: 20
+  cost: 100
   attackRange: 3
   attackSpeed: 1
-  damage: 5
+  damage: 2
